@@ -87,6 +87,8 @@ Write-Host "=== llama.cpp server (GGUF) ==="
 Write-Host "  Model:   $($Model.Name)"
 Write-Host "  Binary:  $Bin"
 Write-Host "  Context: auto-fit (-c 0)"
+$NglNote = if ($env:BONSAI_NGL) { "set via BONSAI_NGL" } else { "auto-detected; override with BONSAI_NGL, 0 = CPU-only" }
+Write-Host "  GPU:     -ngl $Ngl ($NglNote)"
 Write-Host ""
 Write-Host "  Open http://localhost:$Port in your browser to chat."
 Write-Host "  API:  http://localhost:$Port/v1/chat/completions"
